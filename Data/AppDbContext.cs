@@ -10,7 +10,7 @@ namespace HanifStore.Data
             : base(options)
         {
         }
-        public DbSet<UserInformation> userInformation { get; set; }
+        public DbSet<UserInformation> UserInformation { get; set; } 
 
     }
 }
