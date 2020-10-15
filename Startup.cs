@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using HanifStore.Services;
 
 namespace HanifStore
 {
@@ -30,6 +31,7 @@ namespace HanifStore
                 options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>().
                 AddEntityFrameworkStores<AppDbContext>();
+            services.AddScoped<IUserService, UserService>();
             services.AddControllersWithViews();
         }
 
@@ -52,7 +54,7 @@ namespace HanifStore
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -19,6 +19,7 @@ namespace HanifStore.Domain
         public string Email { get; set; }
         public decimal Amount { get; set; }
         public string ProfilePicture { get; set; }
+        public string UserId { get; set; } 
         public virtual IdentityUser IdentityUser { get; set; }
     }
 }

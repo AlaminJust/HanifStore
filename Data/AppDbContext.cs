@@ -11,6 +11,8 @@ namespace HanifStore.Data
         {
         }
         public DbSet<UserInformation> UserInformation { get; set; } 
+        public DbSet<CustomersBuy> CustomersBuys { get; set; }
+        public DbSet<CustomerDeposit> CustomerDeposits { get; set; } 
 
     }
 }

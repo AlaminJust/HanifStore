@@ -69,3 +69,24 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+.nav-item button#login{
+    padding: 6px 25px !important;
+    color:white;
+}
+.nav-item .sign-up, #log-out{
+    background: #1b6ec2;
+    color: white;
+    color: white !important;
+    margin: 0 2px;
+    border-radius: 5px !important;
+    padding: 7px 20px !important;
+}
+#user-name {
+    padding: 6px 30px;
+    margin: 0px 5px;
+}
+header {
+    top: 0px;
+    position: sticky;
+    z-index: 11;
+}
