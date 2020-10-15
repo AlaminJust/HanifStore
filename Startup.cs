@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using HanifStore.Services;
+using HanifStore.Factory;
 
 namespace HanifStore
 {
@@ -32,6 +33,7 @@ namespace HanifStore
             services.AddIdentity<IdentityUser, IdentityRole>().
                 AddEntityFrameworkStores<AppDbContext>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ILoginRegistrationModelFactory, LoginRegistrationModelFactory>();
             services.AddControllersWithViews();
         }
 

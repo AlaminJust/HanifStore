@@ -1,4 +1,5 @@
-﻿using HanifStore.Client.Models;
+﻿using HanifStore.Admin.Models;
+using HanifStore.Client.Models;
 using HanifStore.Domain;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -16,5 +17,6 @@ namespace HanifStore.Services
         public bool checkDuplicateUser(Registration model);
         public IdentityUser getIdentityUserByUserNameOrPhoneNumber(string userName = null , string phoneNumber = null);
         public UserInformation InsertUserInformation(UserInformation userInformation);
+        public IList<UsersInformation> getUsersInformation(int page = 1, int pageSize = int.MaxValue);
     }
 }

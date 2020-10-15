@@ -35,12 +35,12 @@ namespace HanifStore.Client.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (model != null && _userLoginRegistrationService.checkDuplicateUser(model))
+                    if (model != null && !_userLoginRegistrationService.checkDuplicateUser(model))
                     { 
                         var result = await _userLoginRegistrationService.userRegistration(model);
                         if (result.Succeeded)
                         {
-                            UserInformation userInformation = _loginRegistrationModelFactory.userInformationModelFactory(model, User.Identity.Name);
+                            UserInformation userInformation = _loginRegistrationModelFactory.userInformationModelFactory(model, model.UserName);
                             var user = _userLoginRegistrationService.InsertUserInformation(userInformation);
                             return RedirectToAction("Index","Home");
                         }

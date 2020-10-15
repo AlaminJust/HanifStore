@@ -181,3 +181,4 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.dll
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.pdb
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.genruntimeconfig.cache
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.csprojAssemblyReference.cache
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\ManageUsers\UserList.cshtml.g.cs

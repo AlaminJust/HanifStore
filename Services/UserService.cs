@@ -1,8 +1,10 @@
-﻿using HanifStore.Client.Models;
+﻿using HanifStore.Admin.Models;
+using HanifStore.Client.Models;
 using HanifStore.Data;
 using HanifStore.Domain;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,8 +74,8 @@ namespace HanifStore.Services
                 throw new NullReferenceException(nameof(userName));
             }
             if(userName!=null)
-                return _userManager.Users.Where(x => x.UserName == userName).FirstOrDefault();
-            else return _userManager.Users.Where(x => x.PhoneNumber == phoneNumber).FirstOrDefault();
+                return _userManager.Users.Where(x => x.UserName == userName.ToLower().Trim()).FirstOrDefault();
+            else return _userManager.Users.Where(x => x.PhoneNumber == phoneNumber.ToLower().Trim()).FirstOrDefault();
         }
 
         public UserInformation InsertUserInformation(UserInformation userInformation)
@@ -86,6 +88,27 @@ namespace HanifStore.Services
             save();
             return userInformation;
         }
-        
+
+        public IList<UsersInformation> getUsersInformation(int page = 1, int pageSize = int.MaxValue)
+        {
+            var usersinfo = (from u in _userManager.Users
+                             join uf in _appDbContext.UserInformation on u.Id equals uf.UserId
+                             select new UsersInformation
+                             {
+                                 UserName = u.UserName,
+                                 UserId = u.Id,
+                                 Amount = uf.Amount,
+                                 FatherName = uf.FatherName,
+                                 PhoneNumber = uf.PhoneNumber,
+                                 ProfilePicture = uf.ProfilePicture,
+                                 FirstName = uf.FirstName,
+                                 LastName = uf.LastName,
+                                 VillageName = uf.VillageName,
+                                 Email = uf.Email,
+                                 Password = uf.Password,
+                                 ConfirmPassword = uf.ConfirmPassword
+                             }).Skip((page-1)*pageSize).Take(pageSize).ToList();
+            return usersinfo;
+        }
     }
 }
