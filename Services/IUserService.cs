@@ -15,8 +15,9 @@ namespace HanifStore.Services
         public Task<Boolean> userLogin(Login model);
         public Task<Boolean> userLogout(); 
         public bool checkDuplicateUser(Registration model);
-        public IdentityUser getIdentityUserByUserNameOrPhoneNumber(string userName = null , string phoneNumber = null);
+        public IdentityUser getIdentityUserByUserNameOrPhoneNumber(string userName = null , string phoneNumber = null , string userId = null);
         public UserInformation InsertUserInformation(UserInformation userInformation);
-        public IList<UsersInformation> getUsersInformation(int page = 1, int pageSize = int.MaxValue);
+        public IList<UsersInformationModel> getUsersInformation(int page = 1, int pageSize = int.MaxValue);
+        public void save();
     }
 }

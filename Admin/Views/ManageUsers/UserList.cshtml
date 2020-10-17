@@ -1,9 +1,9 @@
-﻿@model IEnumerable<UsersInformation>
+﻿@model IEnumerable<UsersInformationModel>
 
-<table id="table_id" class="table-bordered">
+
+<table id="table_id" class="table-striped">
     <thead>
         <tr>
-            <th>Image</th>
             <th>Name</th>
             <th>User name</th>
             <th>Phone number</th>
@@ -16,9 +16,13 @@
         @foreach (var user in Model)
         {
             <tr>
-                <td><img src="~/img/customer.png" style="width:50px; height:50px;"/></td>
-                <td>@user.FirstName  @user.LastName</td>
-                <td>@user.UserName</td>
+                <td><a href="transactions?userId=@user.UserId">@user.FirstName  @user.LastName</a></td>
+                <td>
+                    <button class="add-balance" asp-controller="user" asp-action="create"
+                            data-toggle="ajax-modal" data-target="#add-contact" id="@user.UserId">
+                        @user.UserName
+                    </button>
+                </td>
                 <td>@user.PhoneNumber</td>
                 <td>@user.VillageName</td>
                 <td>@user.FatherName</td>
@@ -28,7 +32,6 @@
     </tbody>
     <tfoot>
         <tr>
-            <th>Image</th>
             <th>Name</th>
             <th>User name</th>
             <th>Phone number</th>
@@ -38,10 +41,64 @@
         </tr>
     </tfoot>
 </table>
+
+
+<div class="modal fade" id="add-contact" tabindex="-1" role="dialog" aria-labelledby="addPositionsLabel" aria-hidden="true">
+    <div id="AddContent">
+    </div>
+</div>
+
 @section renderScript{
     <script>
         $(document).ready(function () {
             $('#table_id').DataTable();
         });
     </script>
+}
+
+@section regesterEvent{
+    @foreach (var user in Model)
+    {
+        <script type="text/javascript">
+            $("#@user.UserId").click(function () {
+                var userId = $(this)[0].id;
+                $.ajax({
+                    url: $(this).attr("formaction")+"?userId="+userId,
+                }).done(function (msg) {
+                    $("#AddContent").html(msg);
+                    $("#add-contact").modal("show");
+                });
+            });
+        </script>
+    }
+}
+
+@section Popup{
+
+    <script type="text/javascript">
+        $("body").on("click", "#save", function () {
+            var form = $('form');
+            var token = $('input[name="__RequestVerificationToken"]', form).val();
+            $.ajax({
+                type: "post",
+                url: form.attr('action'),
+                data: {
+                    __RequestVerificationToken: token,
+                    customersBuy: {
+                        Description: $("#Description").val(),
+                        Price: $("#Price").val(),
+                        Username: $("#Username").val(),
+                        Deposite: $("#Deposite").val()
+                    }
+                },
+                dataType: "html",
+                success: function (result) {
+                    $("#add-contact").modal("hide");
+                    $("#partial").html(result);
+                }
+            });
+            return false;
+        });
+    </script>
+
 }

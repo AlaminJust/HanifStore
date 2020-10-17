@@ -34,6 +34,8 @@ namespace HanifStore
                 AddEntityFrameworkStores<AppDbContext>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ILoginRegistrationModelFactory, LoginRegistrationModelFactory>();
+            services.AddScoped<ITransactionService, TransactionService>();
+            services.AddScoped<ITransactionModelFactory, TransactionModelFactory>();
             services.AddControllersWithViews();
         }
 

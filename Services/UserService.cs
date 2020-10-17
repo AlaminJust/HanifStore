@@ -34,7 +34,7 @@ namespace HanifStore.Services
         {
             return _userManager.Users.Where(x => x.UserName == model.UserName.Trim().ToLower() || x.PhoneNumber == model.PhoneNumber.Trim()).Any();
         }
-        private void save()
+        public void save()
         {
             _appDbContext.SaveChanges();
         }
@@ -67,13 +67,17 @@ namespace HanifStore.Services
         }
 
 
-        public IdentityUser getIdentityUserByUserNameOrPhoneNumber(string userName = null, string phoneNumber = null)
+        public IdentityUser getIdentityUserByUserNameOrPhoneNumber(string userName = null, string phoneNumber = null, string userId = null)
         {
-            if(userName == null && phoneNumber == null)
+            if(userName == null && phoneNumber == null && userId == null)
             {
                 throw new NullReferenceException(nameof(userName));
             }
-            if(userName!=null)
+            if (userId != null)
+            {
+                return _userManager.Users.Where(x => x.Id == userId).FirstOrDefault();
+            }
+            else if (userName!=null)
                 return _userManager.Users.Where(x => x.UserName == userName.ToLower().Trim()).FirstOrDefault();
             else return _userManager.Users.Where(x => x.PhoneNumber == phoneNumber.ToLower().Trim()).FirstOrDefault();
         }
@@ -89,11 +93,11 @@ namespace HanifStore.Services
             return userInformation;
         }
 
-        public IList<UsersInformation> getUsersInformation(int page = 1, int pageSize = int.MaxValue)
+        public IList<UsersInformationModel> getUsersInformation(int page = 1, int pageSize = int.MaxValue)
         {
             var usersinfo = (from u in _userManager.Users
                              join uf in _appDbContext.UserInformation on u.Id equals uf.UserId
-                             select new UsersInformation
+                             select new UsersInformationModel
                              {
                                  UserName = u.UserName,
                                  UserId = u.Id,

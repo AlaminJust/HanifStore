@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HanifStore.Admin.Models
 {
-    public class UsersInformation 
+    public class UsersInformationModel  
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

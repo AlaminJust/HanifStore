@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TransactionListModel>
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@{
+    var totalBuy = Model.Sum(x => x.Price);
+    var totalDeposite = Model.Sum(x => x.Deposite);
+}
+
+<div class="card text-center" style="padding:20px; margin-bottom:10px;">
+    <span>খরজ : @totalBuy টাকা</span>
+    <span>জমা : @totalDeposite টাকা</span>
+    <span>বাকি : @(totalBuy - totalDeposite) টাকা</span>
+</div>
+
+<table id="transaction-list-table" class="table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Deposite</th>
+            <th>Added by</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.CreatedOn</td>
+                <td>@transaction.Description</td>
+                <td>@transaction.Price</td>
+                <td>@transaction.Deposite</td>
+                <td>@transaction.AddedBy</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Deposite</th>
+            <th>Added by</th>
+        </tr>
+    </tfoot>
+</table>
+
+@section renderTransactionScript{
+    <script>
+        $(document).ready(function () {
+            $('#transaction-list-table').DataTable();
+        });
+    </script>
+}
