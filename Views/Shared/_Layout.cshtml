@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="~/js/login.js"></script>
+    <script src="~/js/category.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <header>
@@ -73,7 +75,7 @@
             &copy; 2020 - HanifStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+   
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -82,5 +84,6 @@
     @RenderSection("Popup", required: false)
     @RenderSection("regesterEvent", required: false)
     @RenderSection("renderTransactionScript", required: false)
+    @RenderSection("renderCategorylistScript", required: false)
 </body>
 </html>

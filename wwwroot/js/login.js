@@ -1,5 +1,4 @@
-﻿
-var user = {
+﻿var user = {
     post: function (url, data) {
         $.ajax({
             type: "POST",

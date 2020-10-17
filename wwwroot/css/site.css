@@ -140,4 +140,39 @@ body {
          margin: 0px; 
          padding: 0px !important;
     }
+    .panel1 {
+        width: 100% !important;
+        margin-left: 10px !important;
+    }
+    .panel3 {
+        width: 100% !important;
+        margin-left: 10px !important;
+    }
+}
+
+body {
+    background: #eeeeee;
+}
+
+.panel {
+    display: inline-block;
+    background: #ffffff;
+    min-height: 100px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    border-radius:4px;
+}
+
+.panel1 {
+    min-width: 100px;
+    width: 100%;
+    height: 200px;
+    box-shadow: 0;
+}
+
+.panel3 {
+    min-height: 300px;
+    width: 100%;
+    margin-top: 0px;
 }

@@ -62,10 +62,6 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.4, )"
-            },
-            "datatables.net-bs4": {
-              "target": "Package",
-              "version": "[*, )"
             }
           },
           "imports": [

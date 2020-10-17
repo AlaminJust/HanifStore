@@ -156,6 +156,9 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.AssemblyInfo.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.TagHelpers.input.cache
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.TagHelpers.output.cache
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.RazorCoreGenerate.cache
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\ManageUsers\Create.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\ManageUsers\TransactionList.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\ManageUsers\UserList.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Shared\_Layout.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\_ViewImports.cshtml.g.cs
@@ -181,6 +184,4 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.dll
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.pdb
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.genruntimeconfig.cache
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.csprojAssemblyReference.cache
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\ManageUsers\UserList.cshtml.g.cs
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\ManageUsers\Create.cshtml.g.cs
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\ManageUsers\TransactionList.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\CategoryList.cshtml.g.cs

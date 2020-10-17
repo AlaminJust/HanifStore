@@ -85,8 +85,59 @@ body {
     padding: 6px 30px;
     margin: 0px 5px;
 }
+.card.registration.shadow{
+    border-radius:5px;
+}
 header {
     top: 0px;
     position: sticky;
     z-index: 11;
+}
+
+.modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+body {
+    font-family: serif;
+}
+
+.add-balance {
+    border: none;
+    background: #e0e9f1;
+    border-radius: 3px;
+}
+
+@media only screen and (max-width : 768px) {
+    body{
+        font-family:serif;
+    }
+    ul li.nav-item {
+        margin-bottom: 10px !important;
+        margin-right: 0px !important;
+    }
+    #user-name{
+        padding:0px;
+        margin:0px;
+        margin-top:10px;
+    }
+    nav-item .sign-up, #log-out {
+         background: white !important; 
+         color: black !important; 
+         margin: 0px; 
+         padding: 0px !important;
+    }
 }

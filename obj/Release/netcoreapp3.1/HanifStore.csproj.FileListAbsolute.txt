@@ -184,3 +184,5 @@ E:\Learning\HanifStore\obj\Release\netcoreapp3.1\staticwebassets\HanifStore.Stat
 E:\Learning\HanifStore\obj\Release\netcoreapp3.1\HanifStore.dll
 E:\Learning\HanifStore\obj\Release\netcoreapp3.1\HanifStore.pdb
 E:\Learning\HanifStore\obj\Release\netcoreapp3.1\HanifStore.genruntimeconfig.cache
+E:\Learning\HanifStore\obj\Release\netcoreapp3.1\Razor\Admin\Views\Product\CategoryList.cshtml.g.cs
+E:\Learning\HanifStore\obj\Release\netcoreapp3.1\Razor\Admin\Views\Product\_categoryList.cshtml.g.cs

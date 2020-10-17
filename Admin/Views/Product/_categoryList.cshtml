@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CategoryModel>
+
+@{
+    var index = 1;
+    var check = "checked";
+}
+
+<script>
+    $(document).ready(function () {
+        var lenth = @Model.Count();
+        $('#categorylist').height( (lenth+2) * 50 );
+    })
+</script>
+
+<div class="panel panel3" id="categorylist">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Category name</th>
+                <th>Created by</th>
+                <th>Display order</th>
+                <th>Publish</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                if (category.IsPublish) check = "checked";
+                else check = "";
+                <tr>
+                    <td>@index</td>
+                    <td>@category.CategoryName</td>
+                    <td>@category.CreatedBy</td>
+                    <td>@category.DisplayOrder</td>
+                    <td><input type="checkbox" name="name" value="" @check /></td>
+                </tr>
+                index = index + 1;
+            }
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>No</th>
+                <th>Category name</th>
+                <th>Created by</th>
+                <th>Display order</th>
+                <th>Publish</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+@section renderCategorylistScript{
+    <script>
+        $(document).ready(function () {
+            $('#categorylist').height(430);
+            console.log('hello');
+        });
+    </script>
+}
