@@ -132,6 +132,9 @@ namespace HanifStore.Migrations
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ProductPicture")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ProductSpecificationIds")
                         .HasColumnType("nvarchar(max)");
 

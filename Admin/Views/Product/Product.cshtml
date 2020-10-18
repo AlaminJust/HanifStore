@@ -1,0 +1,5 @@
+﻿@model ProductsListModel
+
+
+@{await Html.RenderPartialAsync("~/Admin/Views/Product/_createProduct.cshtml",Model.ProductModel);}
+@{await Html.RenderPartialAsync("~/Admin/Views/Product/_productList.cshtml",Model.ProductsModel);}

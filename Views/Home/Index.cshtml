@@ -1,8 +1,48 @@
-﻿@{
+﻿@model IEnumerable<ProductModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+@foreach (var product in Model)
+{
+    var src = product.ProductPicture == null ? "img/pranBiscuit.png" : "img/"+product.ProductPicture;
+    <div class="container page-wrapper">
+        <div class="page-inner">
+            <div class="row">
+                <div class="el-wrapper">
+                    <div class="box-up">
+                        <img class="img" src="@src" style="width:200px;" alt="">
+                        <div class="img-info">
+                            <div class="info-inner">
+                                <span class="p-name">@product.ProductName</span>
+                                <span class="p-company">Hanif store</span>
+                            </div>
+                            @if (product.Quantity > 0)
+                            {
+                                <div class="a-size">Available Quantity : <span class="size">1 , 2, 3 kg</span></div>
+                            }
+                            else
+                            {
+                                <div class="a-size">Product out of stock<span class="size"></span></div>
+                            }
+                        </div>
+                    </div>
+                    <div class="box-down">
+                        <div class="h-bg">
+                            <div class="h-bg-inner"></div>
+                        </div>
+
+                        <a class="cart" href="#">
+                            <span class="price">@product.Price Tk.</span>
+                            <span class="add-to-cart">
+                                <span class="txt">Add in cart</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

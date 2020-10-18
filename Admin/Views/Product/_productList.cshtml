@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProductModel>
+
+@{
+    var index = 1;
+}
+
+<script>
+    $(document).ready(function () {
+        var lenth = @Model.Count();
+        $('#productlist').height((lenth + 4) * 50);
+        $('#adminproductlist').DataTable();
+    })
+</script>
+
+<div class="panel panel3 shadow" id="productlist">
+        <table id="adminproductlist" class="table table-striped">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Product name</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var products in Model)
+                {
+            <tr>
+                <td>@index</td>
+                <td>@products.ProductName</td>
+                <td>@products.Quantity</td>
+                <td>@products.CategoryId</td>
+                <td>@products.Price</td>
+                <td><a href="edit?productId=@products.Id"><span>Edit</span></a></td> 
+            </tr>
+                    index = index + 1;
+                }
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>No</th>
+                <th>Product name</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Edit</th>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+
+
+
+@section renderProductList{
+    <script>
+        $(document).ready(function () {
+            $('#adminproductlist').DataTable();
+        });
+    </script>
+}

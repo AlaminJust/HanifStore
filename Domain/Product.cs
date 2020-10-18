@@ -14,7 +14,8 @@ namespace HanifStore.Domain
         public int CategoryId { get; set; }
         public bool IsPublish { get; set; }
         public bool IsDeleted { get; set; }
-        public int DisplayOrder { get; set; } 
+        public int DisplayOrder { get; set; }
+        public string ProductPicture { get; set; }
         public Category ProductCategory { get; set; }
 
     }

@@ -1,0 +1,112 @@
+﻿@model ProductModel
+
+@{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Biscuite",
+        Value = "1",
+        Selected = true
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Misti",
+        Value = "2"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Cauil",
+        Value = "3"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Torkari",
+        Value = "4"
+    });
+}
+
+<script>
+    $(document).ready(function () {
+        var height = $('form').height();
+        $('#create-product').height(height);
+        console.log($('#create-product').height())
+    })
+</script>
+
+<div class="panel panel1 shadow" id="create-product">
+    <form asp-controller="product" asp-action="create" method="post" enctype="multipart/form-data">
+        @Html.HiddenFor(model => model.Id)
+        <div class="row" id="detect-height">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ProductName"></label>
+                    <input asp-for="ProductName" class="form-control" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Price"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Quantity"></label>
+                    <input asp-for="Quantity" class="form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="CategoryId"></label>
+                @Html.DropDownListFor(model => model.CategoryId, listItems, "Select Category", new { @class = "form-control", })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="DisplayOrder"></label>
+                    <input asp-for="DisplayOrder" class="form-control" />
+                    <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                </div>
+            </div>
+            @if (Model.Id > 0)
+            {
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="productFile">Change picture</label>
+                        <input class="form-control" style="padding:3px;" type="file" id="productFile" name="productFile" multiple />
+                        
+                        <span id="productFile" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <img style="width:100px; height:100px;" src="~/img/@Model.ProductPicture" alt="Alternate Text" />
+                </div>
+            }   
+            else
+            {
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="productFile">Select product picture</label>
+                        <input class="form-control" style="padding:3px;" type="file" id="productFile" name="productFile" multiple />
+                        <span id="productFile" class="text-danger"></span>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="form-group">
+            <label asp-for="IsPublish"></label>
+            <input asp-for="IsPublish" class="form-control" />
+            <span asp-validation-for="IsPublish" class="text-danger"></span>
+        </div>
+
+
+        <input class="btn btn-primary" type="submit" name="name" value="Submit" />
+    </form>
+</div>
+
