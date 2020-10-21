@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using HanifStore.Services;
 using HanifStore.Factory;
+using AutoMapper;
 
 namespace HanifStore
 {
@@ -28,6 +29,7 @@ namespace HanifStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
             services.AddDbContextPool<AppDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>().
@@ -42,6 +44,7 @@ namespace HanifStore
             services.AddScoped<IProductService, ProductService>(); 
             services.AddScoped<IFileService, FileService>(); 
             services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<ICacheService, CacheService>();
             services.AddMemoryCache();
             services.AddControllersWithViews();
         }

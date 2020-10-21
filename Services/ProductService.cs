@@ -34,7 +34,7 @@ namespace HanifStore.Services
             {
                 query = query.Where(x => x.ProductName.Contains(productName, StringComparison.InvariantCultureIgnoreCase));
             }
-            return query.ToList();
+            return query.OrderBy(x => x.DisplayOrder).ToList();
         }
 
         public Product getProductById(int productId)

@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using HanifStore.Admin.Models;
 using HanifStore.Factory;
+using HanifStore.Infrustracture.Cache;
 using HanifStore.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace HanifStore.Admin.Controllers
 {
@@ -18,15 +22,16 @@ namespace HanifStore.Admin.Controllers
         private readonly ICategoryModelFactory _categoryModelFactory;
         private readonly IProductModelFactory _productModelFactory; 
         private readonly IProductService _productService;
-        private readonly IFileService _fileService;
-
+        private readonly IFileService _fileService; 
+        private readonly ICacheService _cacheService;
         public ProductController
             (
                 ICategoryService categoryService,
                 ICategoryModelFactory categoryModelFactory,
                 IProductModelFactory productModelFactory,
                 IProductService productService,
-                IFileService fileService
+                IFileService fileService,
+                ICacheService cacheService
             )
         {
             _categoryService = categoryService;
@@ -34,6 +39,7 @@ namespace HanifStore.Admin.Controllers
             _productModelFactory = productModelFactory;
             _productService = productService;
             _fileService = fileService;
+            _cacheService = cacheService;
         }
         [Route("category")]
         [HttpPost]
@@ -73,6 +79,7 @@ namespace HanifStore.Admin.Controllers
                     model.ProductPicture = uniqueFilePath;
                     var product = _productModelFactory.productModelFactory(model);
                     _productService.insertProduct(product);
+                    _cacheService.ClearCacheKey();
                 }
             }
             return RedirectToAction("list");
@@ -109,6 +116,7 @@ namespace HanifStore.Admin.Controllers
                 var product = _productService.getProductById(model.Id);
                 model.ProductPicture = uniqepath;
                 _productService.updateProduct(product, model);
+                _cacheService.ClearCacheKey();
             }
             return RedirectToAction("list");
         }
