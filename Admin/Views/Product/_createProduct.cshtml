@@ -1,28 +1,8 @@
 ﻿@model ProductModel
+@inject ICategoryService _categoryService 
 
 @{
-    List<SelectListItem> listItems = new List<SelectListItem>();
-    listItems.Add(new SelectListItem
-    {
-        Text = "Biscuite",
-        Value = "1",
-        Selected = true
-    });
-    listItems.Add(new SelectListItem
-    {
-        Text = "Misti",
-        Value = "2"
-    });
-    listItems.Add(new SelectListItem
-    {
-        Text = "Cauil",
-        Value = "3"
-    });
-    listItems.Add(new SelectListItem
-    {
-        Text = "Torkari",
-        Value = "4"
-    });
+    List<SelectListItem> listItems = _categoryService.getAllCategorisAsSelectListItem().ToList();
 }
 
 <script>

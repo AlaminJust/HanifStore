@@ -33,8 +33,22 @@ using HanifStore.Admin.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "E:\Learning\HanifStore\Admin\Views\_ViewImports.cshtml"
+using HanifStore.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "E:\Learning\HanifStore\Admin\Views\_ViewImports.cshtml"
+using HanifStore.Admin.Models.Role;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a9c4674d86b78f66d2aa9eaf5ee3b9c0141540a6", @"/Admin/Views/ManageUsers/TransactionList.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fe18fd8850468070a9e81d423cb8d7da36b486ed", @"/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"74fccd026dea2f6b8f2a7eadfd256798d2ea5c97", @"/Admin/Views/_ViewImports.cshtml")]
     public class Admin_Views_ManageUsers_TransactionList : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<TransactionListModel>>
     {
         #pragma warning disable 1998

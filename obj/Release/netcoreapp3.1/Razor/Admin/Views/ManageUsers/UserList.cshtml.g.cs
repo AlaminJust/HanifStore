@@ -33,8 +33,22 @@ using HanifStore.Admin.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "E:\Learning\HanifStore\Admin\Views\_ViewImports.cshtml"
+using HanifStore.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "E:\Learning\HanifStore\Admin\Views\_ViewImports.cshtml"
+using HanifStore.Admin.Models.Role;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0a446cbe9403cf92834680e2a39ae6a980405e19", @"/Admin/Views/ManageUsers/UserList.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fe18fd8850468070a9e81d423cb8d7da36b486ed", @"/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"74fccd026dea2f6b8f2a7eadfd256798d2ea5c97", @"/Admin/Views/_ViewImports.cshtml")]
     public class Admin_Views_ManageUsers_UserList : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<UsersInformationModel>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("add-balance"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -117,7 +131,7 @@ WriteAttributeValue("", 464, user.UserId, 464, 12, false);
 #line hidden
 #nullable disable
             WriteLiteral("</a></td>\r\n                <td>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a446cbe9403cf92834680e2a39ae6a980405e196530", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0a446cbe9403cf92834680e2a39ae6a980405e196865", async() => {
                 WriteLiteral("\r\n                        ");
 #nullable restore
 #line 23 "E:\Learning\HanifStore\Admin\Views\ManageUsers\UserList.cshtml"

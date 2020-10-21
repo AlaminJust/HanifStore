@@ -1,33 +1,22 @@
 ﻿@model IEnumerable<CategoryModel>
 
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="panel panel1">
-            <h4 class="text-center">Add Category</h4>
-            <hr />
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="category-name">Category</label>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <input id="category-name" placeholder="Enter category name" />
-                    </div>
-                </div>
-                <div class="offset-md-1 col-md-4">
-                    <button type="submit" onclick="categoryJs.createCategory()">
-                        Submit
-                    </button>
-                </div>
+<div class="panel panel1">
+    <h4 class="text-center">Add Category</h4>
+    <hr />
+    <div class="row">
+        <div class="offset-md-3 col-md-2">
+            <label for="category-name">Category</label>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input id="category-name" placeholder="Enter category name" />
             </div>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="panel panel1">
-            <div class="form-group">
-                <input id="category-nam" placeholder="Enter category name" />
-            </div>
+        <div class="col-md-4">
+            <button type="submit" onclick="categoryJs.createCategory()">
+                Submit
+            </button>
         </div>
     </div>
 </div>

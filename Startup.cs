@@ -41,6 +41,8 @@ namespace HanifStore
             services.AddScoped<IProductModelFactory, ProductModelFactory>(); 
             services.AddScoped<IProductService, ProductService>(); 
             services.AddScoped<IFileService, FileService>(); 
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddMemoryCache();
             services.AddControllersWithViews();
         }
 

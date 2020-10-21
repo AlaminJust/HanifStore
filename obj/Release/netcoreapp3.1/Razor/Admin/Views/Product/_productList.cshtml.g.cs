@@ -33,8 +33,22 @@ using HanifStore.Admin.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 5 "E:\Learning\HanifStore\Admin\Views\_ViewImports.cshtml"
+using HanifStore.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "E:\Learning\HanifStore\Admin\Views\_ViewImports.cshtml"
+using HanifStore.Admin.Models.Role;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0c09fc66391c254428e1ae12dccd3347687feebc", @"/Admin/Views/Product/_productList.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fe18fd8850468070a9e81d423cb8d7da36b486ed", @"/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"74fccd026dea2f6b8f2a7eadfd256798d2ea5c97", @"/Admin/Views/_ViewImports.cshtml")]
     public class Admin_Views_Product__productList : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<ProductModel>>
     {
         #pragma warning disable 1998

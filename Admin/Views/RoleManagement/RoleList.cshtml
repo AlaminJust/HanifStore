@@ -1,0 +1,4 @@
+﻿@model RoleAndRoleListModel
+
+@{await Html.RenderPartialAsync("~/Admin/Views/RoleManagement/_createRole.cshtml", Model.roleModel);}
+@{await Html.RenderPartialAsync("~/Admin/Views/RoleManagement/_roleList.cshtml", Model.roleListModels);}

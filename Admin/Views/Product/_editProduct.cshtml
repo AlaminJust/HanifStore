@@ -1,28 +1,8 @@
 ﻿@model ProductModel
+@inject ICategoryService _categoryService
 
 @{
-    List<SelectListItem> listItems = new List<SelectListItem>();
-    listItems.Add(new SelectListItem
-    {
-        Text = "Biscuite",
-        Value = "1",
-        Selected = true
-    });
-    listItems.Add(new SelectListItem
-    {
-        Text = "Misti",
-        Value = "2"
-    });
-    listItems.Add(new SelectListItem
-    {
-        Text = "Cauil",
-        Value = "3"
-    });
-    listItems.Add(new SelectListItem
-    {
-        Text = "Torkari",
-        Value = "4"
-    });
+    List<SelectListItem> listItems = _categoryService.getAllCategorisAsSelectListItem().ToList();
 }
 
 <script>
@@ -79,14 +59,14 @@
                     <div class="form-group">
                         <label for="productFile">Change picture</label>
                         <input class="form-control" style="padding:3px;" type="file" id="productFile" name="productFile" multiple />
-                        
+
                         <span id="productFile" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <img style="width:100px; height:100px;" src="~/img/@Model.ProductPicture" alt="Alternate Text" />
                 </div>
-            }   
+            }
             else
             {
                 <div class="col-md-6">

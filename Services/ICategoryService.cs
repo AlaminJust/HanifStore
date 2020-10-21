@@ -1,5 +1,6 @@
 ﻿using HanifStore.Admin.Models;
 using HanifStore.Domain;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace HanifStore.Services
         public IList<CategoryModel> GetAllCategories();
         public Category GetCategoryByNameOrId(string categoryName = null, int id = 0);
         public void InsertCategory(Category category);
+        public IList<SelectListItem> getAllCategorisAsSelectListItem();
     }
 }

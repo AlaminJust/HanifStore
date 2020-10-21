@@ -1,0 +1,23 @@
+﻿@model RoleModel
+
+<div class="panel panel1">
+    <h4 class="text-center">Add Role</h4>
+    <hr />
+    <form asp-controller="role" asp-action="create" method="post">
+        <div class="row">
+            <div class="col-md-2">
+                <label asp-for="RoleName"></label>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input asp-for="RoleName" placeholder="Enter role name" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+﻿@using HanifStore.Services
+@inject ICategoryService _categoryService
+
+@{
+    var itemList = _categoryService.getAllCategorisAsSelectListItem();
+}
+
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="user" asp-action="list">Users</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="product" asp-action="list">Proudcts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="product" asp-action="categorylist">Category</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="role" asp-action="list">Role</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Category
+        </a>
+        <div class="dropdown-menu">
+
+            @foreach (var item in itemList)
+            {
+                @Html.ActionLink(
+                    item.Text,
+                    "index",
+                    "Home",
+                    new
+                         {
+                        categoryId = item.Value,
+
+                    },
+                    new { @class = "dropdown-item" }
+                )
+            }
+        </div>
+    </li>
+</ul>

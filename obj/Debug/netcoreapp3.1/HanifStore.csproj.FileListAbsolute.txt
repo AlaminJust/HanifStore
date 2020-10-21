@@ -163,7 +163,11 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\Categor
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\Product.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\_categoryList.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\_createProduct.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\_editProduct.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\_productList.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\RoleManagement\RoleList.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\RoleManagement\_createRole.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\RoleManagement\_roleList.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Shared\_Layout.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\_ViewImports.cshtml.g.cs
@@ -176,6 +180,7 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Client\Views\_ViewStart.csh
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_navberList.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
@@ -189,4 +194,3 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.dll
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.pdb
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.genruntimeconfig.cache
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.csprojAssemblyReference.cache
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\_editProduct.cshtml.g.cs

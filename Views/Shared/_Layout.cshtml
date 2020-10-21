@@ -22,28 +22,17 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="user" asp-action="list">Users</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="product" asp-action="list">Proudcts</a>
-                        </li>
-
-                    </ul>
+                    @{ await Html.RenderPartialAsync("~/Views/Shared/_navberList.cshtml");}
                 </div>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1 justify-content-end">
-                        @if (signInManager.IsSignedIn(User))
+                        @if(signInManager.IsSignedIn(User))
                         {
                             <li><img src="~/img/customer.png" style="width:30px;" /></li>
-                        <li class="nav-item">
-                            
-                            <a id="user-name" class="nav-link text-dark"> @User.Identity.Name </a>
-                        </li>
+                            <li class="nav-item">
+                                <a id="user-name" class="nav-link text-dark"> @User.Identity.Name </a>
+                            </li>
                             <li class="nav-item">
                                 <a id="log-out" class="nav-link text-dark" asp-controller="Users" asp-action="Logout"> Logout </a>
                             </li>
@@ -75,11 +64,11 @@
     </div>
 
     @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - HanifStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>*@
-   
+            <div class="container">
+                &copy; 2020 - HanifStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -10,7 +10,7 @@ namespace HanifStore.Services
     public interface IProductService
     {
         public void insertProduct(Product product);
-        public IList<Product> getProductByCategoryIdList(int categoryId = 0 , string productName = null);
+        public IList<Product> getProductByCategoryIdList(int categoryId = 0, string productName = null, bool publish = true);
         public Product getProductById(int productId);
         public void updateProduct(Product product , ProductModel model);
     }

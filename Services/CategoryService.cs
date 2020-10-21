@@ -1,6 +1,7 @@
 ﻿using HanifStore.Admin.Models;
 using HanifStore.Data;
 using HanifStore.Domain;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,16 @@ namespace HanifStore.Services
                 CreatedOn = x.CreatedOn,
                 DisplayOrder = x.DisplayOrder
             }).OrderBy(x => x.DisplayOrder).ToList();
+            return categories;
+        }
+
+        public IList<SelectListItem> getAllCategorisAsSelectListItem()
+        {
+            var categories = _appDbContext.Categories.Where(x => x.IsPublish).Select(x => new SelectListItem
+            {
+                Text = x.CategoryName,
+                Value = x.Id.ToString()
+            }).ToList();
             return categories;
         }
 

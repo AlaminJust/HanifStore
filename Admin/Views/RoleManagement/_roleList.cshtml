@@ -1,0 +1,26 @@
+﻿@model IEnumerable<RoleListModel>
+
+@{
+    var index = 1;
+}
+
+<div class="panel panel3">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Role name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>@index</td>
+                    <td>@role.RoleName</td>
+                </tr>
+                index = index + 1;
+            }
+        </tbody>
+    </table>
+</div>

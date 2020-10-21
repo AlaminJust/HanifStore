@@ -481,3 +481,7 @@ body {
             text-transform: uppercase;
             white-space: nowrap;
         }
+
+#navbardrop{
+    color:black;
+}
