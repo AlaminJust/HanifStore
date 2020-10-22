@@ -1,4 +1,5 @@
 ﻿using HanifStore.Admin.Models.Role;
+using HanifStore.Data;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace HanifStore.Services
                 RoleManager<IdentityRole> roleManager,
                 IUserService userService,
                 UserManager<IdentityUser>userManager
+                
             )
         {
             _roleManager = roleManager;
@@ -54,7 +56,7 @@ namespace HanifStore.Services
             return result; 
         }
 
-        public void insertUserRole(string userId, string roleName)
+        public async Task<bool> insertUserRole(string userId, string roleName)
         {
             if(userId == null)
             {
@@ -74,17 +76,52 @@ namespace HanifStore.Services
             {
                 throw new NullReferenceException(nameof(user));
             }
-            var result = _userManager.AddToRoleAsync(user, roleName.ToLower().Trim());
-            result.Wait();
+            if (await IsUserInSpecificRole(userId, roleName.ToLower().Trim())) return false;
+            await _userManager.AddToRoleAsync(user, roleName.ToLower().Trim());
+            return true;
         }
 
         public IList<RoleListModel> getAllRole()
         {
             return _roleManager.Roles.Select(x => new RoleListModel
             {
-                RoleId = x.Id, 
+                RoleId = x.Id,
                 RoleName = x.Name
             }).ToList();
         }
+        public async Task<Boolean> IsUserInSpecificRole(string userId , string roleName) 
+        {
+            var role = await _roleManager.FindByNameAsync(roleName);
+            if (role == null) return false;
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return false;
+            return await _userManager.IsInRoleAsync(user, role.Name);
+        }
+
+        public async Task<bool> removeUserRole(string userId, string roleName)
+        {
+            if (userId == null)
+            {
+                throw new NullReferenceException(nameof(userId));
+            }
+            if (roleName == null)
+            {
+                throw new NullReferenceException(nameof(roleName));
+            }
+            var role = _roleManager.FindByNameAsync(roleName.ToLower().Trim());
+            if (role == null)
+            {
+                throw new NullReferenceException(nameof(role));
+            }
+            var user = _userService.getIdentityUserByUserNameOrPhoneNumber(userId: userId);
+            if (user == null)
+            {
+                throw new NullReferenceException(nameof(user));
+            }
+            if (!await IsUserInSpecificRole(userId, roleName.ToLower().Trim())) return false;
+            await _userManager.RemoveFromRoleAsync(user, roleName.ToLower().Trim());
+            return true;
+        }
+
     }
 }

@@ -11,4 +11,9 @@ namespace HanifStore.Admin.Models.Role
         [Display(Name ="Role name")]
         public string RoleName { get; set; }  
     }
+    public class UserAndRole
+    {
+        public string userId { get; set; }
+        public string roleName { get; set; } 
+    }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using HanifStore.Admin.Models;
 using HanifStore.Admin.Models.Role;
 using HanifStore.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -12,13 +14,16 @@ namespace HanifStore.Admin.Controllers
     public class RoleManagementController : Controller
     {
         private readonly IRoleService _roleService;
+        private readonly IUserService _userService;
 
         public RoleManagementController
             (
-                IRoleService roleService
+                IRoleService roleService,
+                IUserService userService
             )
         {
             _roleService = roleService;
+            _userService = userService;
         }
 
         [Route("create")]
@@ -43,6 +48,29 @@ namespace HanifStore.Admin.Controllers
             var model = new RoleAndRoleListModel();
             model.roleListModels = roleList;
             return View("~/Admin/Views/RoleManagement/RoleList.cshtml", model);
+        }
+        [Route("control")]
+        public IActionResult RoleControl()
+        {
+            var roleAndUserListModel = new RoleAndUserListModel();
+            roleAndUserListModel.usersInformationModels = _userService.getUsersInformation();
+            roleAndUserListModel.roleListModel = _roleService.getAllRole();
+            return View("~/Admin/Views/RoleManagement/RoleControl.cshtml", roleAndUserListModel);
+        }
+        [HttpPost]
+        [Route("createRole")]
+        public async Task<IActionResult> AddOrRemoveUsersRole(UserAndRole model) 
+        {
+            if(await _roleService.insertUserRole(model.userId, model.roleName))
+            {
+                return Json(new { result = "User role added.", url = Url.Action("control", "role") });
+            }
+            else if(await _roleService.removeUserRole(model.userId, model.roleName))
+            {
+                return Json(new { result = "User role removed.", url = Url.Action("control", "role") });
+
+            }
+            else return BadRequest(Json(new { error = "Already is in role" }));
         }
     }
 }

@@ -9,6 +9,8 @@ E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\HanifStore.dll
 E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\HanifStore.pdb
 E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\HanifStore.Views.dll
 E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\HanifStore.Views.pdb
+E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -147,10 +149,12 @@ E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3
 E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.RazorAssemblyInfo.cache
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.RazorAssemblyInfo.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.AssemblyInfoInputs.cache
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.AssemblyInfo.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.csproj.CoreCompileInputs.cache
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.MvcApplicationPartsAssemblyInfo.cache
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.RazorAssemblyInfo.cache
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.RazorAssemblyInfo.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.TagHelpers.input.cache
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.TagHelpers.output.cache
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.RazorCoreGenerate.cache
@@ -191,8 +195,4 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\staticwebassets\HanifStore.Static
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.dll
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.pdb
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.genruntimeconfig.cache
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.csprojAssemblyReference.cache
-E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\AutoMapper.dll
-E:\Learning\HanifStore\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.csproj.CoreCompileInputs.cache
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.MvcApplicationPartsAssemblyInfo.cache
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\RoleManagement\RoleControl.cshtml.g.cs

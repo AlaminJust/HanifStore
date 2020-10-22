@@ -1,0 +1,58 @@
+﻿@model RoleAndUserListModel
+@inject IRoleService _roleService
+
+<div class="panel panel1">
+    <table class="table" id="role-control">
+        <thead>
+            <tr>
+                <td></td>
+                @foreach (var role in Model.roleListModel)
+                {
+                    <td>@role.RoleName</td>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.usersInformationModels)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+
+                    @foreach (var role in Model.roleListModel)
+                    {
+                        if (await _roleService.IsUserInSpecificRole(user.UserId, role.RoleName))
+                        {
+                            <td><input id="@user.UserId@role.RoleName" onclick="roleJs.InsertOrDeleteUserInRole(this)" type="checkbox" checked /></td>
+                        }
+                        else
+                        {
+                            <td><input id="@user.UserId@role.RoleName" onclick="call(this)" type="checkbox" /></td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                @foreach (var role in Model.roleListModel)
+                {
+                    <td>@role.RoleName</td>
+                }
+            </tr>
+        </tfoot>
+    </table>
+
+
+</div>
+
+@section renderRoleControlList{
+    <script>
+        $(document).ready(function () {
+            $('#role-control').DataTable();
+        });
+        call = function (e) {
+            roleJs.InsertOrDeleteUserInRole(e);
+        }
+    </script>
+}

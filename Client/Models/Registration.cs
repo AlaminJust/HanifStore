@@ -24,15 +24,17 @@ namespace HanifStore.Client.Models
         [Required(ErrorMessage = "Confirm password is required.")]
         [Compare(nameof(Password), ErrorMessage = "Password and confirm password is not match.")]
         public string ConfirmPassword { get; set; }
-        [Display(Name = "Village name")]
+        [Display(Name = "Village name *")]
         [Required(ErrorMessage = "Village name is required.")]
         public string VillageName { get; set; }
         [Display(Name = "Father name *")]
         public string FatherName { get; set; }
         [Display(Name = "Phone number *")]
         [Required(ErrorMessage = "Phone number is required.")]
+        [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
         [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; } 
     }
 }
