@@ -167,6 +167,7 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\_catego
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\_createProduct.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\_editProduct.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\Product\_productList.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\RoleManagement\RoleControl.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\RoleManagement\RoleList.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\RoleManagement\_createRole.cshtml.g.cs
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\RoleManagement\_roleList.cshtml.g.cs
@@ -195,4 +196,4 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\staticwebassets\HanifStore.Static
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.dll
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.pdb
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.genruntimeconfig.cache
-E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Admin\Views\RoleManagement\RoleControl.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.csprojAssemblyReference.cache

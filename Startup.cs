@@ -47,6 +47,7 @@ namespace HanifStore
             services.AddScoped<ICacheService, CacheService>();
             services.AddMemoryCache();
             services.AddControllersWithViews();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,10 +66,10 @@ namespace HanifStore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
-
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseRouting();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

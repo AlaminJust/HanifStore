@@ -34,7 +34,7 @@ namespace HanifStore.Services
             {
                 throw new NullReferenceException(nameof(roleName));
             }
-            return _roleManager.Roles.Where(x => x.Name.ToLower().Trim() == roleName.ToLower().Trim()).Any();
+            return _roleManager.Roles.Where(x => x.Name.Trim() == roleName.Trim()).Any();
         }
 
         #endregion
@@ -50,10 +50,10 @@ namespace HanifStore.Services
             }
             IdentityRole identityRole = new IdentityRole
             {
-                Name = model.RoleName
+                Name = model.RoleName.Trim()
             };
             var result = await _roleManager.CreateAsync(identityRole);
-            return result; 
+            return result;
         }
 
         public async Task<bool> insertUserRole(string userId, string roleName)
@@ -66,7 +66,7 @@ namespace HanifStore.Services
             {
                 throw new NullReferenceException(nameof(roleName));
             }
-            var role = _roleManager.FindByNameAsync(roleName.ToLower().Trim());
+            var role = await _roleManager.FindByNameAsync(roleName.Trim());
             if(role == null)
             {
                 throw new NullReferenceException(nameof(role));
@@ -76,11 +76,18 @@ namespace HanifStore.Services
             {
                 throw new NullReferenceException(nameof(user));
             }
-            if (await IsUserInSpecificRole(userId, roleName.ToLower().Trim())) return false;
-            await _userManager.AddToRoleAsync(user, roleName.ToLower().Trim());
-            return true;
+            if (await IsUserInSpecificRole(userId, roleName.Trim())) return false;
+            var restult = await _userManager.AddToRoleAsync(user, roleName.Trim());
+            if (restult.Succeeded)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-
+        
         public IList<RoleListModel> getAllRole()
         {
             return _roleManager.Roles.Select(x => new RoleListModel
@@ -108,19 +115,23 @@ namespace HanifStore.Services
             {
                 throw new NullReferenceException(nameof(roleName));
             }
-            var role = _roleManager.FindByNameAsync(roleName.ToLower().Trim());
+            var role = await _roleManager.FindByNameAsync(roleName.Trim());
             if (role == null)
             {
                 throw new NullReferenceException(nameof(role));
             }
-            var user = _userService.getIdentityUserByUserNameOrPhoneNumber(userId: userId);
+            var user =  _userService.getIdentityUserByUserNameOrPhoneNumber(userId: userId);
             if (user == null)
             {
                 throw new NullReferenceException(nameof(user));
             }
-            if (!await IsUserInSpecificRole(userId, roleName.ToLower().Trim())) return false;
-            await _userManager.RemoveFromRoleAsync(user, roleName.ToLower().Trim());
-            return true;
+            if (!await IsUserInSpecificRole(userId, roleName.Trim())) return false;
+            var result = await _userManager.RemoveFromRoleAsync(user, roleName.Trim());
+            if (result.Succeeded)
+            {
+                return true;
+            }
+            else return false;
         }
 
     }
