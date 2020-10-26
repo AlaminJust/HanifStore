@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,9 @@ namespace HanifStore.Domain
         public bool IsDeleted { get; set; }
         public int DisplayOrder { get; set; }
         public string ProductPicture { get; set; }
+        public string VendorId { get; set; }
+        public DateTime CreatedOn { get; set; }  
+        public virtual IdentityUser IdentityUser { get; set; }
         public Category ProductCategory { get; set; }
 
     }

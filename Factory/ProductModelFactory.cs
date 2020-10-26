@@ -26,7 +26,9 @@ namespace HanifStore.Factory
                 ProductName = product.ProductName,
                 ProductPicture = product.ProductPicture,
                 ProductSpecificationIds = product.ProductSpecificationIds,
-                Quantity = product.Quantity
+                Quantity = product.Quantity,
+                CreatedOn = product.CreatedOn,
+                VendorId = product.VendorId
             };
             return productModel;
         }
@@ -44,16 +46,22 @@ namespace HanifStore.Factory
                 ProductName = x.ProductName,
                 ProductPicture = x.ProductPicture,
                 ProductSpecificationIds = x.ProductSpecificationIds,
-                Quantity = x.Quantity
+                Quantity = x.Quantity,
+                CreatedOn = x.CreatedOn,
+                VendorId = x.VendorId
             }).ToList();
             return productsModel;
         }
 
-        public Product productModelFactory(ProductModel model)
+        public Product productModelFactory(ProductModel model, string userId)
         {
             if(model == null)
             {
                 throw new NullReferenceException(nameof(model));
+            }
+            if(userId == null)
+            {
+                throw new NullReferenceException(nameof(userId));
             }
             var product = new Product
             {
@@ -65,7 +73,9 @@ namespace HanifStore.Factory
                 ProductName = model.ProductName,
                 ProductPicture = model.ProductPicture,
                 ProductSpecificationIds = model.ProductSpecificationIds,
-                Quantity = model.Quantity
+                Quantity = model.Quantity,
+                CreatedOn = DateTime.UtcNow,
+                VendorId = userId
             };
             return product;
         }

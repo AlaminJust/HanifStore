@@ -276,10 +276,12 @@ body {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
     color: #818181;
+    font-size:12px;
 }
 
 .el-wrapper:hover .add-to-cart {
     left: 50%;
+    cursor:pointer;
 }
 
 .el-wrapper:hover .img {

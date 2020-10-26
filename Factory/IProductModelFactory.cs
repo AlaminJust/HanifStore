@@ -9,7 +9,7 @@ namespace HanifStore.Factory
 {
     public interface IProductModelFactory
     {
-        public Product productModelFactory(ProductModel model);
+        public Product productModelFactory(ProductModel model , string userId);
         public IList<ProductModel> getProductModelList(IList<Product> products);
         public ProductModel getProductModelFromProduct(Product product);
     }

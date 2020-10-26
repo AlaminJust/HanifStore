@@ -19,7 +19,7 @@
                                 <span class="p-name">@product.ProductName</span>
                                 <span class="p-company">Hanif store</span>
                             </div>
-                            @if (product.Quantity > 0)
+                            @if(product.Quantity > 0)
                             {
                                 <div class="a-size">Available Quantity : <span class="size">1 , 2, 3 kg</span></div>
                             }
@@ -34,7 +34,7 @@
                             <div class="h-bg-inner"></div>
                         </div>
 
-                        <a class="cart" href="#">
+                        <a class="cart" onclick="Order.insertShoppingCartItem(@product.Id)">
                             <span class="price">@product.Price Tk.</span>
                             <span class="add-to-cart">
                                 <span class="txt">Add in cart</span>

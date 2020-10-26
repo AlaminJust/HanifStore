@@ -22,10 +22,14 @@ namespace HanifStore.Services
             _userService = userService;
         }
 
-        public IList<Product> getProductByCategoryIdList(int categoryId = 0 , string productName = null, bool publish = true)
+        public IList<Product> getProductByCategoryIdList(int categoryId = 0 , string productName = null, bool publish = true, string vendorId = null)
         {
             var query = _appDbContext.Products.Where(x => !x.IsDeleted);
             if (!publish) query = query.Where(x => x.IsPublish);
+            if(vendorId != null)
+            {
+                query = query.Where(x => x.VendorId == vendorId);
+            }
             if(categoryId > 0)
             {
                 query = query.Where(x => x.CategoryId == categoryId);

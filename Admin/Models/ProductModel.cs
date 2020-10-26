@@ -27,6 +27,8 @@ namespace HanifStore.Admin.Models
         [Display(Name = "Display order")]
         public int DisplayOrder { get; set; }
         public string ProductPicture { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public string VendorId { get; set; }  
     }
 
     public class ProductsListModel

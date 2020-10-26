@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using HanifStore.Admin.Models;
 using HanifStore.Factory;
 using HanifStore.Infrustracture.Cache;
 using HanifStore.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -24,6 +26,9 @@ namespace HanifStore.Admin.Controllers
         private readonly IProductService _productService;
         private readonly IFileService _fileService; 
         private readonly ICacheService _cacheService;
+        private readonly IUserService _userService;
+        private readonly IRoleService _roleService;
+
         public ProductController
             (
                 ICategoryService categoryService,
@@ -31,7 +36,9 @@ namespace HanifStore.Admin.Controllers
                 IProductModelFactory productModelFactory,
                 IProductService productService,
                 IFileService fileService,
-                ICacheService cacheService
+                ICacheService cacheService,
+                IUserService userService,
+                IRoleService roleService
             )
         {
             _categoryService = categoryService;
@@ -40,9 +47,12 @@ namespace HanifStore.Admin.Controllers
             _productService = productService;
             _fileService = fileService;
             _cacheService = cacheService;
+            _userService = userService;
+            _roleService = roleService;
         }
         [Route("category")]
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult CreateCategory(CategoryModel model)
         {
             model.CreatedBy = User.Identity.Name;
@@ -62,22 +72,25 @@ namespace HanifStore.Admin.Controllers
             }
         }
         [Route("categorylist")]
+        [Authorize(Roles = "Admin")]
         public IActionResult CategoryList()
         {
             var categories = _categoryService.GetAllCategories();
             return View("~/Admin/Views/Product/CategoryList.cshtml",categories);
         }
         [Route("create")]
+        [Authorize(Roles = "Admin,Vendor")]
         [HttpPost]
         public IActionResult CreateProduct(ProductModel model , IFormFile productFile) 
         {
             if (ModelState.IsValid)
             {
+                var user = _userService.getIdentityUserByUserNameOrPhoneNumber(User.Identity.Name);
                 var uniqueFilePath = _fileService.InsertFile(productFile , "img");
                 if(uniqueFilePath != null)
                 {
                     model.ProductPicture = uniqueFilePath;
-                    var product = _productModelFactory.productModelFactory(model);
+                    var product = _productModelFactory.productModelFactory(model,user.Id);
                     _productService.insertProduct(product);
                     _cacheService.ClearCacheKey();
                 }
@@ -85,15 +98,21 @@ namespace HanifStore.Admin.Controllers
             return RedirectToAction("list");
         }
         [Route("list")]
-        public IActionResult productList(int categoryId = 0 , string productName = null)
+        [Authorize(Roles = "Admin,Vendor")]
+        public async Task<IActionResult> productList(int categoryId = 0 , string productName = null)
         {
-            var products = _productService.getProductByCategoryIdList(categoryId, productName);
+            var user = _userService.getIdentityUserByUserNameOrPhoneNumber(userName: User.Identity.Name);
+            var vendor = await _roleService.IsUserInSpecificRole(user.Id, "Vendor");
+            var admin = await _roleService.IsUserInSpecificRole(user.Id, "Admin");
+            var vendorId = (vendor == true && !admin) ? user.Id : null; 
+            var products = _productService.getProductByCategoryIdList(categoryId, productName, vendorId:vendorId);
             var productsModel = _productModelFactory.getProductModelList(products);
             var productListModel = new ProductsListModel();
             productListModel.ProductsModel = productsModel;
             return View("~/Admin/Views/Product/Product.cshtml",productListModel);
         }
         [Route("edit")]
+        [Authorize(Roles = "Admin,Vendor")]
         public IActionResult ProductEdit(int productId = 0)
         {
             var product = _productService.getProductById(productId);
@@ -106,6 +125,7 @@ namespace HanifStore.Admin.Controllers
         }
         [Route("edit")]
         [HttpPost]
+        [Authorize(Roles = "Admin,Vendor")]
         public IActionResult ProductEdit(ProductModel model , IFormFile productFile)
         {
             if (ModelState.IsValid)
