@@ -29,15 +29,9 @@
 
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1 justify-content-end">
-                        @if(signInManager.IsSignedIn(User))
+                        @if (signInManager.IsSignedIn(User))
                         {
-                            <li><img src="~/img/customer.png" style="width:30px;" /></li>
-                            <li class="nav-item">
-                                <a id="user-name" class="nav-link text-dark"> @User.Identity.Name </a>
-                            </li>
-                            <li class="nav-item">
-                                <a id="log-out" class="nav-link text-dark" asp-controller="Users" asp-action="Logout"> Logout </a>
-                            </li>
+                            await Html.RenderPartialAsync("~/Views/Shared/_navbarSignInNaveLink.cshtml");
                         }
                         else
                         {
@@ -53,6 +47,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark sign-up" asp-controller="Users" asp-action="Registration"> SignUp </a>
                             </li>
+
                         }
                     </ul>
                 </div>

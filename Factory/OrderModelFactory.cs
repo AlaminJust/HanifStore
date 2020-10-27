@@ -47,5 +47,21 @@ namespace HanifStore.Factory
             };
             return ShoppingCart;
         }
+
+        public IList<ShoppingCartItemModel> getShoppingCartItemsModel(IList<ShoppingCartItem> shoppingCartItems)
+        {
+            var shoppingCartItemsModel = shoppingCartItems.Select(x => new ShoppingCartItemModel
+            {
+                AttributeXml = x.AttributeXml,
+                CreatedOn = x.CreatedOn,
+                CustomerId = x.CustomerId,
+                ProductId = x.ProductId,
+                Quantity = x.Quantity,
+                Subtotal = x.Subtotal,
+                UpdatedOn = x.UpdatedOn,
+                VendorId = x.VendorId
+            }).ToList();
+            return shoppingCartItemsModel;
+        }
     }
 }

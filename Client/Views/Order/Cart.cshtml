@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ShoppingCartItemModel>
+@inject HanifStore.Services.IProductService _productService 
+
+@{ 
+    var index = 0;
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                var product = _productService.getProductById(item.ProductId);
+                <tr>
+                    <td>@index</td>
+                    <td>@product.ProductName</td>
+                    <td>@product.Price</td>
+                    <td>@item.Subtotal</td>
+                </tr>
+                index = index + 1;
+            }
+        </tbody>
+        
+    </table>
+}

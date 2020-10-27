@@ -196,3 +196,6 @@ E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\staticwebassets\HanifStore.Static
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.dll
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.pdb
 E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.genruntimeconfig.cache
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\HanifStore.csprojAssemblyReference.cache
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Client\Views\Order\Cart.cshtml.g.cs
+E:\Learning\HanifStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_navbarSignInNaveLink.cshtml.g.cs

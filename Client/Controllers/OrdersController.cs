@@ -15,17 +15,20 @@ namespace HanifStore.Client.Controllers
         private readonly IProductService _productService;
         private readonly IOrderService _orderService;
         private readonly IOrderModelFactory _orderModelFactory;
+        private readonly IUserService _userService;
 
         public OrdersController
             (
                 IProductService productService,
                 IOrderService orderService,
-                IOrderModelFactory orderModelFactory
+                IOrderModelFactory orderModelFactory,
+                IUserService userService
             )
         {
             _productService = productService;
             _orderService = orderService;
             _orderModelFactory = orderModelFactory;
+            _userService = userService;
         }
         [Route("addtocart")]
         [HttpPost]
@@ -39,6 +42,18 @@ namespace HanifStore.Client.Controllers
             var shoppingCart = _orderModelFactory.GetShoppingCartItem(model , User.Identity.Name);
             _orderService.InsertShoppingCartItem(shoppingCart);
             return Json(new { result = "Product added to the cart." , url = Url.Action("index","home") });
+        }
+        [Route("cart")]
+        public IActionResult Cart()
+        {
+            var user = _userService.getIdentityUserByUserNameOrPhoneNumber(userName: User.Identity.Name);
+            if(user == null)
+            {
+                throw new NullReferenceException(nameof(user));
+            }
+            var shoppingCartItem = _orderService.getShoppingCartByCustomerId(user.Id);
+            var model = _orderModelFactory.getShoppingCartItemsModel(shoppingCartItem).ToList();
+            return View("~/Client/Views/Order/Cart.cshtml", model);
         }
         
     }

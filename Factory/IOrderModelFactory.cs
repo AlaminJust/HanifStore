@@ -10,5 +10,6 @@ namespace HanifStore.Factory
     public interface IOrderModelFactory
     {
         public ShoppingCartItem GetShoppingCartItem(ShoppingCartItemModel model , string vendorId);
+        public IList<ShoppingCartItemModel> getShoppingCartItemsModel(IList<ShoppingCartItem> shoppingCartItems);
     }
 }

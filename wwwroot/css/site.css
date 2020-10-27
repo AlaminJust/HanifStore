@@ -487,3 +487,13 @@ body {
 #navbardrop{
     color:black;
 }
+
+.add-to-cart-link {
+    background-image: url(/img/shoppingCart/icons8-add-basket-48.png);
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 5px;
+}
