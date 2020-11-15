@@ -1,30 +1,35 @@
 ﻿@model IEnumerable<ShoppingCartItemModel>
-@inject HanifStore.Services.IProductService _productService 
-
-@{ 
+@inject HanifStore.Services.IProductService _productService
+@{
     var index = 0;
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th>No</th>
-                <th></th>
-                <th></th>
-                <th></th>
+            <tr style="background: #1b6ec2; color:white;">
+                <th>Remove</th>
+                <th>Picture</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Update</th>
             </tr>
         </thead>
         <tbody>
-            @foreach(var item in Model)
+            @foreach (var item in Model)
             {
                 var product = _productService.getProductById(item.ProductId);
                 <tr>
-                    <td>@index</td>
+                    <td><i class="fa fa-trash" style="cursor:pointer;"></i></td>
+                    <td><img style="width:45px; height:60px;" src="~/img/@product.ProductPicture" /></td>
                     <td>@product.ProductName</td>
                     <td>@product.Price</td>
-                    <td>@item.Subtotal</td>
+                    <td><span class="plus-minus">+</span><input class="form-control customize-input" value="@product.Quantity" /><span class="plus-minus">-</span></td>
+                    <td><input class="btn btn-primary" type="button" value="Update" /></td>
                 </tr>
                 index = index + 1;
             }
         </tbody>
-        
     </table>
 }
+<div>
+    <button class="btn btn-primary" style="text-align:center;" type="submit">Submit Order</button>
+</div>
