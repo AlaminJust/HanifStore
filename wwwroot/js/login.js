@@ -23,5 +23,10 @@
             RemeberMe: true
         };
         user.post("Users/Login", Login);
+    },
+    navBarDrop: function () {
+        $('#navbardrop').css('outline', 'none');
+        $('#navbardrop').click();
     }
 }
+

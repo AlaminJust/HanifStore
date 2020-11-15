@@ -10,14 +10,11 @@
         "projectUniqueName": "E:\\Learning\\HanifStore\\HanifStore.csproj",
         "projectName": "HanifStore",
         "projectPath": "E:\\Learning\\HanifStore\\HanifStore.csproj",
-        "packagesPath": "C:\\Users\\BS359\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
         "outputPath": "E:\\Learning\\HanifStore\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\BS359\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

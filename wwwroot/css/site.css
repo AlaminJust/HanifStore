@@ -497,3 +497,23 @@ body {
     position: relative;
     border-radius: 5px;
 }
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.flex-container .container {
+    padding: 2mm;
+    margin: 10px 10px;
+    flex: 0 1 20%;
+}
+.badge-customize {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    position: relative;
+    top: 14px;
+    right: 11px;
+}
