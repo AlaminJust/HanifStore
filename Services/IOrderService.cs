@@ -12,5 +12,8 @@ namespace HanifStore.Services
         public void InsertShoppingCartItem(ShoppingCartItem shoppingCartItem);
         public IList<ShoppingCartItem> getShoppingCartByCustomerId(string customerId = null, string userName = null);
         public int getShoppingCartItemCountByCustomerId(string customerId = null, string userName = null);
+        public void DeleteShopingCartItemById(int id);
+        public ShoppingCartItem GetShoppingCartById(int id);
+        public void UpdateShoppingCartItem(ShoppingCartItemModel shoppingCartItemModel);
     }
 }

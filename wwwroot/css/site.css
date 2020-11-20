@@ -528,3 +528,32 @@ body {
     display: inline-block;
     width: 99px;
 }
+
+.new-item {
+    background: red;
+    width: max-content;
+    padding: 6px;
+    color: white;
+    position: absolute;
+    opacity: 1;
+    z-index: 1;
+    top: 20px;
+}
+.product-discount {
+    background: red;
+    width: max-content;
+    padding: 6px;
+    color: white;
+    position: absolute;
+    opacity: 1;
+    z-index: 1;
+    top: 20px;
+    right:65px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .product-discount::before {
+        right:33px !important;
+    }
+}

@@ -43,7 +43,8 @@ namespace HanifStore.Factory
                 ProductId = model.ProductId,
                 Quantity = model.Quantity,
                 UpdatedOn = DateTime.UtcNow,
-                VendorId = user.Id
+                VendorId = user.Id,
+                isSelected = model.isSelected
             };
             return ShoppingCart;
         }
@@ -59,7 +60,9 @@ namespace HanifStore.Factory
                 Quantity = x.Quantity,
                 Subtotal = x.Subtotal,
                 UpdatedOn = x.UpdatedOn,
-                VendorId = x.VendorId
+                VendorId = x.VendorId,
+                Id = x.Id,
+                isSelected = x.isSelected
             }).ToList();
             return shoppingCartItemsModel;
         }

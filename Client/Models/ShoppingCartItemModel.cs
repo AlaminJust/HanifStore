@@ -7,6 +7,7 @@ namespace HanifStore.Client.Models
 {
     public class ShoppingCartItemModel
     {
+        public int Id { get; set; } 
         public string CustomerId { get; set; }
         public int ProductId { get; set; }
         public string VendorId { get; set; }
@@ -15,5 +16,6 @@ namespace HanifStore.Client.Models
         public DateTime UpdatedOn { get; set; }
         public string AttributeXml { get; set; }
         public decimal Subtotal { get; set; }
+        public bool isSelected { get; set; } 
     }
 }

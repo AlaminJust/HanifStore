@@ -22,6 +22,35 @@
             Subtotal : 100,
             Quantity : 1
         };
-        roleJs.post('order/addtocart', data);
+        this.post('order/addtocart', data);
+    },
+    updateShoppingCartItem: function (Id,selector1,selector2) {
+        const isSelected = $(selector1).is(':checked'),
+            quantity = parseInt($(selector2).val());
+        const data = {
+            Id: Id,
+            Quantity: quantity,
+            isSelected: isSelected
+        };
+        this.post('update', data);
+    },
+    deleteShoppingCartItem: function (Id) {
+        console.log(Id);
+        var data = {
+            Id: Id
+        };
+        this.post('remove',data);
+    },
+    cartItemPlusMinus: function (plusMinus , selector) {
+        var element = $(selector);
+        var value = parseInt(element.val());
+        if (plusMinus == '+') {
+            element.val(value + 1);
+        }
+        else {
+            if (value == 0) value = 1;
+            element.val(value - 1);
+        }
     }
+
 }

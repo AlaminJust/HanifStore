@@ -5,6 +5,7 @@
     <table class="table table-striped">
         <thead>
             <tr style="background: #1b6ec2; color:white;">
+                <td>Option</td>
                 <th>Remove</th>
                 <th>Picture</th>
                 <th>Product Name</th>
@@ -17,13 +18,20 @@
             @foreach (var item in Model)
             {
                 var product = _productService.getProductById(item.ProductId);
+                var check = item.isSelected ? "checked" : "!checked";
                 <tr>
-                    <td><i class="fa fa-trash" style="cursor:pointer;"></i></td>
+                    <td><input id="isSelected_@item.Id" @check type="checkbox" onclick="Order.updateShoppingCartItem(@item.Id,'#isSelected_@item.Id','#quantity_@item.Id')" /></td>
+                    <td><i class="fa fa-trash" style="cursor:pointer;" onclick="Order.deleteShoppingCartItem(@item.Id)"></i></td>
                     <td><img style="width:45px; height:60px;" src="~/img/@product.ProductPicture" /></td>
-                    <td>@product.ProductName</td>
+                    <td style="position:relative;">
+                        @product.ProductName
+                        <div style="position:absolute;">
+                            <h3>Hello</h3>
+                        </div>
+                    </td>
                     <td>@product.Price</td>
-                    <td><span class="plus-minus">+</span><input class="form-control customize-input" value="@product.Quantity" /><span class="plus-minus">-</span></td>
-                    <td><input class="btn btn-primary" type="button" value="Update" /></td>
+                    <td><span class="plus-minus" onclick="Order.cartItemPlusMinus('+','#quantity_@item.Id')">+</span><input id="quantity_@item.Id" class="form-control customize-input" value="@item.Quantity" onblur="Order.updateShoppingCartItem(@item.Id,'#isSelected_@item.Id','#quantity_@item.Id')" /><span class="plus-minus" onclick="Order.cartItemPlusMinus('-','#quantity_@item.Id')">-</span></td>
+                    <td><input class="btn btn-primary" type="button" value="Update" onclick="Order.updateShoppingCartItem(@item.Id,'#isSelected_@item.Id','#quantity_@item.Id')" /></td>
                 </tr>
                 index = index + 1;
             }

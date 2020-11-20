@@ -14,6 +14,7 @@ namespace HanifStore.Domain
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
         public string AttributeXml { get; set; }
-        public decimal Subtotal { get; set; } 
+        public decimal Subtotal { get; set; }
+        public bool isSelected { get; set; } 
     }
 }

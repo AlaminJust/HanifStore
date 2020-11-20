@@ -47,7 +47,7 @@ namespace HanifStore.Client.Controllers
         public IActionResult Cart()
         {
             var user = _userService.getIdentityUserByUserNameOrPhoneNumber(userName: User.Identity.Name);
-            if(user == null)
+            if (user == null)
             {
                 throw new NullReferenceException(nameof(user));
             }
@@ -55,6 +55,19 @@ namespace HanifStore.Client.Controllers
             var model = _orderModelFactory.getShoppingCartItemsModel(shoppingCartItem).ToList();
             return View("~/Client/Views/Order/Cart.cshtml", model);
         }
-        
+        [Route("remove")]
+        [HttpPost]
+        public IActionResult DeleteItemFromCart(ShoppingCartItemModel model)
+        {
+            _orderService.DeleteShopingCartItemById(model.Id);
+            return Json(new { result = "Your item is removed.", url = Url.Action("cart", "order") });
+        }
+        [Route("update")]
+        [HttpPost]
+        public IActionResult UpdateCartItem(ShoppingCartItemModel model)
+        {
+            _orderService.UpdateShoppingCartItem(model);
+            return Json(new { result = "Your item is updated.", url = Url.Action("cart", "order") });
+        }
     }
 }
